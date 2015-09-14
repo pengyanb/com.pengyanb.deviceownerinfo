@@ -10,7 +10,7 @@
     <license>Apache 2.0</license>
     <keywords>cordova,device name</keywords>
 
-	<js-module src="www/DeviceOwnerInfo.js" name="PybDeviceOwnerInfo">
+	<js-module src="www/PybDeviceOwnerInfo.js" name="PybDeviceOwnerInfo">
 		<clobbers taget="PYB.deviceOwnerInfo" />
 	</js-module>
 
