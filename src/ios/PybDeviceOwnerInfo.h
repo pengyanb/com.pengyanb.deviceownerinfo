@@ -19,10 +19,11 @@
 //  Created by Yanbing Peng on 14/09/15.
 //
 //
-#import <Cordova/CDV.h>
+
 #import <Foundation/Foundation.h>
 #import <sys/utsname.h>
 #import <UIKit/UIKit.h>
+#import <Cordova/CDVPlugin.h>
 
 @interface PybDeviceOwnerInfo : CDVPlugin
 

@@ -24,8 +24,8 @@ module.exports = {
     getDeviceOwnerInfo: function(callback){
         exec(callback, 
             function(err){ 
-                    callback('Error: '+err);
-                    },
+                callback('Error: '+err);
+            },
             "PybDeviceOwnerInfo", 
             "getDeviceOwnerInfo", 
             []);
