@@ -17,7 +17,7 @@ import org.json.JSONArray;
 public class PybDeviceOwnerInfo extends CordovaPlugin {
 
     @Override
-    public Boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("getDeviceOwnerInfo")) {
             this.getDeviceOwnerInfo(callbackContext);
             return true;
