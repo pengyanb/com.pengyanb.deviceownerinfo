@@ -21,23 +21,14 @@
 var exec = require('cordova/exec');
 
 module.exports = {
-    getDeviceName: function(callback){
+    getDeviceOwnerInfo: function(callback){
         exec(callback, 
             function(err){ 
                     callback('Error: '+err);
                     },
             "PybDeviceOwnerInfo", 
-            "getDeviceName:", 
+            "getDeviceOwnerInfo:", 
             []);
-    },
-    getDeviceModel: function(callback){
-    	exec(callback, 
-    		function(err){
-    			callback('Error: '+err);
-    		},
-    		"PybDeviceOwnerInfo",
-    		"getDeviceModel",
-    		[]);
     }
 };
 
