@@ -7,9 +7,7 @@ import android.provider.ContactsContract;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-import org.json.JSONArray;
-import org.json.JSONException;
-
+import org.json.*;
 
 public class PybDeviceOwnerInfo extends CordovaPlugin {
 
