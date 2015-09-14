@@ -25,7 +25,7 @@ public class PybDeviceOwnerInfo extends CordovaPlugin {
     {
         try
         {
-            Cursor c = getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
+            Cursor c = this.cordova.getActivity().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
             c.moveToFirst();
         //Log.v("[DeviceName]", c.getString(c.getColumnIndex("display_name")));
             String ownerName = c.getString(c.getColumnIndex("display_name"));
