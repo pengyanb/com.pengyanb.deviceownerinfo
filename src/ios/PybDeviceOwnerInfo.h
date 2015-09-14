@@ -26,7 +26,6 @@
 
 @interface PybDeviceOwnerInfo : CDVPlugin
 
--(void) getDeviceName:(CDVInvokedUrlCommand *) command;
--(void) getDeviceModel:(CDVInvokedUrlCommand *) command;
+-(void) getDeviceOwnerInfo:(CDVInvokedUrlCommand *) command;
 
 @end

@@ -24,4 +24,18 @@
 		<header-file src="src/ios/PybDeviceOwnerInfo.h" />
 		<source-file src="src/ios/PybDeviceOwnerInfo.m" />
 	</platform>
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="PybDeviceOwnerInfo">
+				<param name="android-package" value="org.apache.cordova.PybDeviceOwnerInfo.PybDeviceOwnerInfo"/>
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.READ_PROFILE"/>
+    		<uses-permission android:name="android.permission.READ_CONTACTS"/>
+    	</config-file>
+
+    	<source-file src="src/android/PybDeviceOwnerInfo.java" target-dir="src/org/apache/cordova/PybDeviceOwnerInfo"/>
+    </platform>
 </plugin>

@@ -8,33 +8,27 @@
 #import "PybDeviceOwnerInfo.h"
 
 @interface PybDeviceOwnerInfo()
-@property (nonatomic, strong) NSDictionary * deviceNamesByCode;
+@property (nonatomic, strong) NSDictionary * deviceModelByCode;
 @end
 
 @implementation PybDeviceOwnerInfo
-
--(void)getDeviceName:(CDVInvokedUrlCommand *)command;
+-(void) getDeviceOwnerInfo:(CDVInvokedUrlCommand *) command
 {
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:[UIDevice currentDevice].name];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
-}
-
--(void) getDeviceModel:(CDVInvokedUrlCommand *) command
-{
+    NSString* ownerName = [UIDevice currentDevice].name;
     struct utsname systemInfo;
     uname(&systemInfo);
-    NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    NSString *deviceName = [self.deviceNamesByCode objectForKey:deviceModel];
-    if(!deviceName) deviceName = deviceModel;
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: deviceName];
+    NSString *deviceModelRaw = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    NSString *deviceModel = [self.deviceModelByCode objectForKey:deviceModelRaw];
+    if(!deviceModel) deviceModel = deviceModelRaw;
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: @{@"ownerName":ownerName, @"deviceModel":deviceModel}];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 }
 
--(NSDictionary *)deviceNamesByCode
+-(NSDictionary *)deviceModelByCode
 {
-    if(!_deviceNamesByCode)
+    if(!_deviceModelByCode)
     {
-        _deviceNamesByCode = @{@"i386"      :@"Simulator",
+        _deviceModelByCode = @{@"i386"      :@"Simulator",
                                @"iPod1,1"   :@"iPod Touch",      // (Original)
                                @"iPod2,1"   :@"iPod Touch",      // (Second Generation)
                                @"iPod3,1"   :@"iPod Touch",      // (Third Generation)
@@ -64,26 +58,6 @@
                                @"iPad4,5"   :@"iPad Mini"        // (2nd Generation iPad Mini - Cellular)
                                };
     }
-    return _deviceNamesByCode;
-}
-
--(NSString *)getDeviceName
-{
-    return [UIDevice currentDevice].name;
-}
--(NSString *)getDEviceModel
-{
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    NSString *deviceName = [self.deviceNamesByCode objectForKey:deviceModel];
-    if(deviceName)
-    {
-        return deviceName;
-    }
-    else
-    {
-        return deviceModel;
-    }
+    return _deviceModelByCode;
 }
 @end
