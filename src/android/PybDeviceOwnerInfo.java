@@ -1,5 +1,6 @@
 package org.apache.cordova.PybDeviceOwnerInfo;
 
+
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.provider.ContactsContract;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
+
 import org.json.JSONObject;
 import org.json.JSONException;
 import org.json.JSONArray;
@@ -14,12 +17,12 @@ import org.json.JSONArray;
 public class PybDeviceOwnerInfo extends CordovaPlugin {
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public PluginResult execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("getDeviceOwnerInfo")) {
             this.getDeviceOwnerInfo(callbackContext);
-            return true;
+            return "";
         }
-        return false;
+        return "";
     }
     private void getDeviceOwnerInfo(CallbackContext callbackContext)
     {
