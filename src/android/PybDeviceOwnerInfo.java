@@ -36,7 +36,7 @@ public class PybDeviceOwnerInfo extends CordovaPlugin {
             json.put("deviceModel", deviceModel);
             callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, json));
         }
-        catch
+        catch(Exception e)
         {
             callbackContext.error("Error: unable to get device owner info");
         }
