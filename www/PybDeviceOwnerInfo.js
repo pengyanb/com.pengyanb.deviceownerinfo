@@ -27,7 +27,7 @@ module.exports = {
                     callback('Error: '+err);
                     },
             "PybDeviceOwnerInfo", 
-            "getDeviceOwnerInfo:", 
+            "getDeviceOwnerInfo", 
             []);
     }
 };

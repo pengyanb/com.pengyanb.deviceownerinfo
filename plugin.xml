@@ -5,7 +5,7 @@
 	version="1.0.1">
 
 	<name>deviceownerinfo</name>
-	<description>Phonegap "Device Owner Info" for gathering the Name of the Device specifiied by owner</description>
+	<description>Phonegap "Device Owner Info"</description>
 	<author>Peng Yanbing</author>
     <license>Apache 2.0</license>
     <keywords>cordova,device name</keywords>
