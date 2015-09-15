@@ -1,5 +1,9 @@
 # com.pengyanb.deviceownerinfo
-Phonegap "Device Owner Info" for gathering the Name of the Device specifiied by owner
+Phonegap - Device Owner Info
+
+Install: phonegap plugin add  https://github.com/pengyanb/com.pengyanb.deviceownerinfo.git
+
+Useage:
 
 window.PYB.deviceOwnerInfo.getDeviceOwnerInfo(function(data){
     console.log("[Device Owner Info] :"+JSON.stringify(data));
