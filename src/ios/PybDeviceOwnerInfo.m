@@ -20,7 +20,7 @@
     NSString *deviceModelRaw = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
     NSString *deviceModel = [self.deviceModelByCode objectForKey:deviceModelRaw];
     if(!deviceModel) deviceModel = deviceModelRaw;
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: @{@"ownerName":ownerName, @"deviceModel":deviceModel}];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: @{@"ownerName":ownerName, @"deviceModel":deviceModel, @"deviceOs":@"ios"}];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 }
 

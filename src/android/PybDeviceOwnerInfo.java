@@ -37,6 +37,7 @@ public class PybDeviceOwnerInfo extends CordovaPlugin {
             JSONObject json = new JSONObject();
             json.put("ownerName", ownerName);
             json.put("deviceModel", deviceModel);
+            json.put("deviceOs", "and");
             callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, json));
         }
         catch(Exception e)
